@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Probe Camera</string>
+    <string name="brightness">Brightness</string>
+    <string name="contrast">Contrast</string>
+</resources>

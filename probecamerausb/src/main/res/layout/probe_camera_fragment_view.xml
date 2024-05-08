@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/containerView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:id="@+id/cameraViewContainer"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.jiangdg.ausbc.widget.AspectRatioTextureView
+            android:id="@+id/tvCameraView"
+            android:layout_width="411dp"
+            android:layout_height="731dp"
+            android:visibility="visible"
+            tools:visibility="visible" />
+    </FrameLayout>
+
+    <View
+        android:id="@+id/toolbarBg"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/usbInfoBtn"
+        style="@style/Camera2TopButtonStyle"
+        android:src="@drawable/baseline_info_24"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbarBg"
+        app:layout_constraintEnd_toEndOf="@id/toolbarBg"
+        app:layout_constraintTop_toTopOf="@id/toolbarBg" />
+
+    <ImageView
+        android:id="@+id/resolutionBtn"
+        style="@style/Camera2TopButtonStyle"
+        android:src="@mipmap/camera_resolution"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/toolbarBg"
+        app:layout_constraintEnd_toStartOf="@id/usbInfoBtn"
+        app:layout_constraintTop_toTopOf="@id/toolbarBg" />
+
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/toolbarBottomBarrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="bottom"
+        />
+<!--        app:constraint_referenced_ids="resolutionBtn" />-->
+
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/toolbarGroup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <!--        app:constraint_referenced_ids="resolutionBtn" -->
+
+
+    <LinearLayout
+        android:id="@+id/controlPanelLayout"
+        android:layout_width="0dp"
+        android:layout_height="80dp"
+        android:background="@color/black"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/recTimerLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="16.dp"
+                android:visibility="gone"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/recStateIv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/camera_rec_red_point"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/recTimeTv"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/recTimeTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:gravity="center"
+                    android:text="00:00"
+                    android:textColor="@color/white"
+                    android:textSize="20sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/recStateIv"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <ImageButton
+                android:id="@+id/btnVideoCapture"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                android:background="@drawable/baseline_fiber_manual_record_45"
+                android:backgroundTint="#C60000"
+                android:contentDescription="Record"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/layoutCapture"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_videocam_24"
+                app:tint="#CCFFFFFF"
+                tools:layout_conversion_absoluteHeight="48dp"
+                tools:layout_conversion_absoluteWidth="48dp" />
+
+            <ImageButton
+                android:id="@+id/btnGalleryOpen"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                android:background="@drawable/baseline_fiber_manual_record_45"
+                android:backgroundTint="#86FFFFFF"
+                android:contentDescription="Record"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/layoutCapture"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/baseline_image_24"
+                app:tint="#CCFFFFFF"
+                tools:layout_conversion_absoluteHeight="48dp"
+                tools:layout_conversion_absoluteWidth="48dp" />
+
+            <LinearLayout
+                android:id="@+id/layoutCapture"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+
+                android:orientation="horizontal"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
+                    android:id="@+id/layoutCaptureButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/outline_fiber_manual_record_24"
+                    android:backgroundTint="#A9FFFFFF"
+                    android:orientation="horizontal">
+
+                    <ImageButton
+                        android:id="@+id/btnImageCapture"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_margin="5dp"
+                        android:backgroundTint="#00000000"
+                        android:contentDescription="Capture Photo"
+                        app:srcCompat="@drawable/baseline_fiber_manual_record_50"
+                        tools:layout_conversion_absoluteHeight="70dp"
+                        tools:layout_conversion_absoluteWidth="70dp"
+                        tools:layout_editor_absoluteX="147dp"
+                        tools:layout_editor_absoluteY="651dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+
+
+    <ViewStub
+        android:id="@+id/takePictureTipViewStub"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout="@layout/layout_tip_view"
+        app:layout_constraintBottom_toTopOf="@+id/controlPanelLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarBg" />
+
+
+    <TextView
+        android:id="@+id/frameRateTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cameraViewContainer" />
+
+    <LinearLayout
+        android:id="@+id/slidersLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/rounded_border"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="8.dp"
+        app:layout_constraintBottom_toTopOf="@+id/controlPanelLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/brightnessIconView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/brightness"
+            app:srcCompat="@drawable/baseline_brightness_5_24"
+            app:tint="#A8FFFFFF" />
+
+        <SeekBar
+            android:id="@+id/brightnessSb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#8FFFFFFF"
+            android:padding="8dp" />
+
+        <SeekBar
+            android:id="@+id/contrastSb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#8FFFFFFF"
+            android:padding="8dp" />
+
+        <ImageView
+            android:id="@+id/contrastIconView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:contentDescription="@string/contrast"
+            app:srcCompat="@drawable/baseline_contrast_24"
+            app:tint="#A8FFFFFF" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
